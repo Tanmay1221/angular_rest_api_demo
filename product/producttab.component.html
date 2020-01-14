@@ -1,0 +1,27 @@
+<h1>Product List</h1>
+<table border="2">
+    <tr *ngFor="let p of parr">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.qty}}</td>
+        <td>{{p.expDate}}</td>
+        <td><a href="#"><span (click)="deleteData(p)">delete</span></a>/
+            <a href="#"><span (click)="updateData(p)">edit</span></a>
+        </td>
+    </tr>
+</table>
+<a href="#"><span (click)="changeFlag()">Add Product</span></a>
+<div *ngIf="flag">
+<form>
+    Id: <input type="text" name="id" [(ngModel)]="p1.id">
+    name: <input type="text" name="name" [(ngModel)]="p1.name">
+    qty: <input type="text" name="qty" [(ngModel)]="p1.qty">
+    Expiry date: <input type="text" name="expDate" [(ngModel)]="p1.expDate">
+    <div *ngIf="f1">
+       <input type="button" name="btn" value="Add product" (click)="addProduct()">
+    </div>
+    <div *ngIf="f2">
+      <input type="button" name="btn" value="Update product" (click)="updateProduct()">
+    </div>
+ </form>
+</div>
